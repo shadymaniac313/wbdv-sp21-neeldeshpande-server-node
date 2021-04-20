@@ -6,7 +6,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/whiteboard', {useNewUrlParser: true})
+const connectionUrl = "mongodb://neel:neel123%3F@iad2-c0-1.mongo.objectrocket.com:53379,iad2-c0-2.mongo.objectrocket.com:53379,i\n" +
+    "ad2-c0-0.mongo.objectrocket.com:53379/whiteboard?replicaSet=041c2f2427bb420da5615a2908937370"
+mongoose.connect(connectionUrl, {useNewUrlParser: true})
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
